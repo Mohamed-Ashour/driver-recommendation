@@ -1,0 +1,15 @@
+version: "3.9"
+services:
+  api:
+    tty: true
+    stdin_open: true
+    container_name: drivers-api
+    build: .
+    ports:
+      - '4000:4000'
+    depends_on:
+      - redis
+  redis:
+    image: "redis:alpine"
+    ports:
+      - "6379:6379"
